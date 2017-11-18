@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CountView">
+        <attr name="cv_count" format="integer"/>
+        <attr name="cv_text_color" format="color"/>
+        <attr name="cv_text_size" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="LikeView">
+        <attr name="tv_isLikeUp" format="boolean"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="LikeUpView">
+        <attr name="lav_count" format="integer"/>
+        <attr name="lav_text_color" format="color"/>
+        <attr name="lav_text_size" format="dimension"/>
+        <attr name="lav_drawable_padding" format="dimension"/>
+        <attr name="lav_isLikeUp" format="boolean"/>
+    </declare-styleable>
+
+</resources>
