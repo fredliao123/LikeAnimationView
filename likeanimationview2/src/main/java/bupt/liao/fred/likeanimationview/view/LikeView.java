@@ -26,16 +26,16 @@ import bupt.liao.fred.likeanimationview.utils.LavUtils;
 /**
  * Created by Fred.Liao on 2017/11/18.
  * Email:fredliaobupt@qq.com
- * Description:
+ * Description: The Thumb part of the View
  */
 
 public class LikeView extends View {
-    //圆圈颜色
+    //Color for circle
     private static final int START_COLOR = Color.parseColor("#00e24d3d");
     private static final int END_COLOR = Color.parseColor("#88e24d3d");
-    //缩放动画的时间
+    //Time for Scale animation
     private static final int SCALE_DURING = 150;
-    //圆圈扩散动画的时间
+    //Time for cirle expanding
     private static final int RADIUS_DURING = 100;
 
     private static final float SCALE_MIN = 0.9f;
@@ -63,10 +63,10 @@ public class LikeView extends View {
 
     private boolean mIsLikeUp;
     private long mLastStartTime;
-    //点击的回调
+    //Call back for click
     private LikeUpClickListener mLikeUpClickListener;
 
-    //被点击的次数，未点击时，未点赞是0，点赞是1，所以点完之后的次数是偶数则就是未点赞，奇数就是点赞
+    //Click number, even number
     private int mClickCount;
     private int mEndCount;
     private AnimatorSet mLikeUpAnim;
@@ -98,7 +98,7 @@ public class LikeView extends View {
         mCirclePoint.y = mLikePoint.y + mLikeHeight / 2;
 
         mRadiusMax = Math.max(mCirclePoint.x - getPaddingLeft(), mCirclePoint.y - getPaddingTop());
-        mRadiusMin = LavUtils.dip2px(getContext(), 8);//这个值是根据点击效果调整得到的
+        mRadiusMin = LavUtils.dip2px(getContext(), 8);
         mClipPath = new Path();
         mClipPath.addCircle(mCirclePoint.x, mCirclePoint.y, mRadiusMax, Path.Direction.CW);
     }
@@ -117,7 +117,6 @@ public class LikeView extends View {
 
         mShiningPoint = new LavPoint();
         mLikePoint = new LavPoint();
-        //这个相对位置是在布局中试出来的
         mShiningPoint.x = getPaddingLeft() + LavUtils.dip2px(getContext(), 2);
         mShiningPoint.y = getPaddingTop();
         mLikePoint.x = getPaddingLeft();
@@ -296,8 +295,8 @@ public class LikeView extends View {
         LikeUpScale.setDuration(RADIUS_DURING);
 
         mLikeUpAnim = new AnimatorSet();
-        mLikeUpAnim.play(LikeUpScale).with(circleScale).after(notLikeUpScale);
-        //mLikeUpAnim.play(LikeUpScale).after();
+        mLikeUpAnim.play(LikeUpScale).with(circleScale);
+        mLikeUpAnim.play(LikeUpScale).after(notLikeUpScale);
         mLikeUpAnim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {

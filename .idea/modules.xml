@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LikeAnimationView.iml" filepath="$PROJECT_DIR$/LikeAnimationView.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lavview/lavview.iml" filepath="$PROJECT_DIR$/lavview/lavview.iml" />
     </modules>
   </component>
 </project>

@@ -10,7 +10,7 @@
     >
 
 
-    <bupt.liao.fred.likeanimationview.view.LikeUpView
+    <bupt.liao.fred.lavview.view.LikeUpView
         android:id="@+id/newLikeUpView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

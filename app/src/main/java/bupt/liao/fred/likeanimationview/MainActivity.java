@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import bupt.liao.fred.likeanimationview.view.LikeUpView;
-import bupt.liao.fred.likeanimationview.view.LikeView;
+import bupt.liao.fred.lavview.view.LikeUpView;
+import bupt.liao.fred.lavview.view.LikeView;
 
 
 public class MainActivity extends AppCompatActivity {
