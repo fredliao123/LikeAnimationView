@@ -348,10 +348,8 @@ public class LikeView extends View {
     }
 
     public interface LikeUpClickListener {
-        //点赞回调
         void LikeUpFinish();
 
-        //取消回调
         void LikeDownFinish();
     }
 

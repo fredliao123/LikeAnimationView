@@ -63,7 +63,6 @@ public class LikeUpView extends LinearLayout implements View.OnClickListener {
 
         addCountView();
 
-        //把设置的padding分解到子view，否则对超出view范围的动画显示不全
         setPadding(0, 0, 0, 0, false);
         setOnClickListener(this);
     }
@@ -110,7 +109,7 @@ public class LikeUpView extends LinearLayout implements View.OnClickListener {
     private void resetLikeParams() {
         LayoutParams params = (LayoutParams) mLikeView.getLayoutParams();
         if (mTopMargin < 0) {
-            params.topMargin = mTopMargin;//设置这个距离是为了文字与拇指居中显示
+            params.topMargin = mTopMargin;
         }
         params.leftMargin = getPaddingLeft();
         params.topMargin += getPaddingTop();
@@ -121,7 +120,7 @@ public class LikeUpView extends LinearLayout implements View.OnClickListener {
     private void resetCountViewParams() {
         LayoutParams params = (LayoutParams) mCountView.getLayoutParams();
         if (mTopMargin > 0) {
-            params.topMargin = mTopMargin;//设置这个距离是为了文字与拇指居中显示
+            params.topMargin = mTopMargin;
         }
         params.leftMargin = (int) mDrawablePadding;
         params.topMargin += getPaddingTop();
@@ -156,7 +155,7 @@ public class LikeUpView extends LinearLayout implements View.OnClickListener {
     private LayoutParams getLikeParams() {
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (mTopMargin < 0) {
-            params.topMargin = mTopMargin;//设置这个距离是为了文字与拇指居中显示
+            params.topMargin = mTopMargin;
         }
         params.leftMargin = getPaddingLeft();
         params.topMargin += getPaddingTop();
@@ -167,7 +166,7 @@ public class LikeUpView extends LinearLayout implements View.OnClickListener {
     private LayoutParams getCountParams() {
         LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (mTopMargin > 0) {
-            params.topMargin = mTopMargin;//设置这个距离是为了文字与拇指居中显示
+            params.topMargin = mTopMargin;
         }
         params.leftMargin = (int) mDrawablePadding;
         params.topMargin += getPaddingTop();

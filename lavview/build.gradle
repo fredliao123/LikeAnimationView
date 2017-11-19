@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
 
 android {
     compileSdkVersion 26
@@ -8,7 +11,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,3 +32,24 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
 }
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0'
+    }
+}
+
+publish {
+    userOrg = 'fredliaoaus'
+    groupId = 'bupt.liao.fred'
+    artifactId = 'LikeAnimationView'
+    version = '1.0.0'
+    description = 'A view that shows like number and animation'
+    website = "https://github.com/fredliao123/LikeAnimationView"
+    repoName = 'CustomView'
+
+}
+

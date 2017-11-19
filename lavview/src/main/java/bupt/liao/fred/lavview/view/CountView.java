@@ -34,9 +34,8 @@ public class CountView extends View {
     private int mEndTextColor;
 
     private int mCount;
-    private String[] mTexts;//mTexts[0]是不变的部分，mTexts[1]原来的部分，mTexts[2]变化后的部分
-    private LavPoint[] mTextPoints;//表示各部分的坐标
-
+    private String[] mTexts;
+    private LavPoint[] mTextPoints;
     private float mMaxOffsetY;
     private float mMinOffsetY;
 
@@ -105,10 +104,10 @@ public class CountView extends View {
     }
 
     public void setTextOffsetY(float offsetY) {
-        this.mOldOffsetY = offsetY;//变大是从[0,1]，变小是[0,-1]
-        if (mCountToBigger) {//从下到上[-1,0]
+        this.mOldOffsetY = offsetY;
+        if (mCountToBigger) {
             this.mNewOffsetY = offsetY - mMaxOffsetY;
-        } else {//从上到下[1,0]
+        } else {
             this.mNewOffsetY = mMaxOffsetY + offsetY;
         }
         mFraction = (mMaxOffsetY - Math.abs(mOldOffsetY)) / (mMaxOffsetY - mMinOffsetY);
@@ -162,15 +161,12 @@ public class CountView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        //不变的部分
         mTextPaint.setColor(mTextColor);
         canvas.drawText(String.valueOf(mTexts[0]), mTextPoints[0].x, mTextPoints[0].y, mTextPaint);
 
-        //变化前部分
         mTextPaint.setColor((Integer) LavUtils.evaluate(mFraction, mEndTextColor, mTextColor));
         canvas.drawText(String.valueOf(mTexts[1]), mTextPoints[1].x, mTextPoints[1].y, mTextPaint);
 
-        //变化后部分
         mTextPaint.setColor((Integer) LavUtils.evaluate(mFraction, mTextColor, mEndTextColor));
         canvas.drawText(String.valueOf(mTexts[2]), mTextPoints[2].x, mTextPoints[2].y, mTextPaint);
     }
@@ -198,10 +194,6 @@ public class CountView extends View {
         init();
     }
 
-    /**
-     * 计算不变，原来，和改变后各部分的数字
-     * 这里是只针对加一和减一去计算的算法，因为直接设置的时候没有动画
-     */
     public void calculateChangeNum(int change) {
         if (change == 0) {
             mTexts[0] = String.valueOf(mCount);
